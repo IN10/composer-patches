@@ -1,0 +1,26 @@
+Index: woohoolabs/yang/src/JsonApi/Hydrator/ClassDocumentHydrator.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- woohoolabs/yang/src/JsonApi/Hydrator/ClassDocumentHydrator.php	(date 1569594877240)
++++ woohoolabs/yang/src/JsonApi/Hydrator/ClassDocumentHydrator.php	(date 1569594877240)
+@@ -44,6 +44,18 @@
+             $result->{$attribute} = $value;
+         }
+
++        if ($result->type === "media--image" && $resource->hasRelationship('field_media_image')) {
++            $result->alt = $resource->toArray()['relationships']['field_media_image']['data']['meta']['alt'];
++        }
++        if ($result->type === "file--file" && $resource->hasLinks() && $resource->links()->hasAnyLinks()) {
++            $result->images = new stdClass();
++            foreach ($resource->links()->links() as $link => $value) {
++                if ($link !== "self"){
++                    $result->images->{$link} = $value->href();
++                }
++            }
++        }
++
+         return $result;
+     }
+
