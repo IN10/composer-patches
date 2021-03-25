@@ -5,12 +5,15 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 ===================================================================
 --- woohoolabs/yang/src/JsonApi/Hydrator/ClassDocumentHydrator.php	(date 1569594877240)
 +++ woohoolabs/yang/src/JsonApi/Hydrator/ClassDocumentHydrator.php	(date 1569594877240)
-@@ -44,6 +44,18 @@
+@@ -44,6 +44,21 @@
              $result->{$attribute} = $value;
          }
 
 +        if ($result->type === "media--image" && $resource->hasRelationship('field_media_image')) {
 +            $result->alt = $resource->toArray()['relationships']['field_media_image']['data']['meta']['alt'];
++        }
++        if ($result->type === "media--image" && $resource->hasRelationship('image')) {
++            $result->alt = $resource->toArray()['relationships']['image']['data']['meta']['alt'];
 +        }
 +        if ($result->type === "file--file" && $resource->hasLinks() && $resource->links()->hasAnyLinks()) {
 +            $result->images = new stdClass();
