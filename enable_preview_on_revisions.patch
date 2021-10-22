@@ -1,5 +1,5 @@
 diff --git a/core/modules/node/src/Controller/NodeController.php b/core/modules/node/src/Controller/NodeController.php
-index 385d2bc5ac..7e7014cfe4 100644
+index 385d2bc5ac..7e7014cfe4 100645
 --- a/core/modules/node/src/Controller/NodeController.php
 +++ b/core/modules/node/src/Controller/NodeController.php
 @@ -265,6 +265,11 @@ class NodeController extends ControllerBase implements ContainerInjectionInterfa
