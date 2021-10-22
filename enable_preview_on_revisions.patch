@@ -1,0 +1,16 @@
+diff --git a/modules/node/src/Controller/NodeController.php b/modules/node/src/Controller/NodeController.php
+index 385d2bc5ac..7e7014cfe4 100644
+--- a/modules/node/src/Controller/NodeController.php
++++ b/modules/node/src/Controller/NodeController.php
+@@ -265,6 +265,11 @@ class NodeController extends ControllerBase implements ContainerInjectionInterfa
+             ];
+           }
+ 
++          $links['preview'] = [
++             'title' => $this->t('Preview'),
++             'url' => Url::fromRoute('preview_button.preview', ['node' => $node->id(), 'node_revision' => $vid]),
++          ];
++
+           if ($delete_permission) {
+             $links['delete'] = [
+               'title' => $this->t('Delete'),
