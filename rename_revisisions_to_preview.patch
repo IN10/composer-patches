@@ -1,0 +1,13 @@
+diff --git a/web/core/modules/node/node.links.task.yml b/web/core/modules/node/node.links.task.yml
+index 513b165..7da46bf 100644
+--- a/web/core/modules/node/node.links.task.yml
++++ b/web/core/modules/node/node.links.task.yml
+@@ -14,7 +14,7 @@ entity.node.delete_form:
+ entity.node.version_history:
+   route_name: entity.node.version_history
+   base_route: entity.node.canonical
+-  title: 'Revisions'
++  title: 'Previews'
+   weight: 20
+ entity.node_type.edit_form:
+   title: 'Edit'
