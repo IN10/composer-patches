@@ -1,5 +1,5 @@
 diff --git a/web/core/modules/node/node.links.task.yml b/web/core/modules/node/node.links.task.yml
-index 513b165..7da46bf 100644
+index 7da46bf..513b165 100644
 --- a/web/core/modules/node/node.links.task.yml
 +++ b/web/core/modules/node/node.links.task.yml
 @@ -14,7 +14,7 @@ entity.node.delete_form:
