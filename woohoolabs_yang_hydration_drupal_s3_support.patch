@@ -9,13 +9,13 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
              $result->{$attribute} = $value;
          }
 
-+        if ($result->type === "media--image" && !empty($resources) && $resource->hasRelationship('field_media_image')) {
++        if ($result->type === "media--image" && !empty($resource) && $resource->hasRelationship('field_media_image')) {
 +            $result->alt = $resource->toArray()['relationships']['field_media_image']['data']['meta']['alt'];
 +        }
-+        if ($result->type === "media--image" && !empty($resources) &&  $resource->hasRelationship('image')) {
++        if ($result->type === "media--image" && !empty($resource) &&  $resource->hasRelationship('image')) {
 +            $result->alt = $resource->toArray()['relationships']['image']['data']['meta']['alt'];
 +        }
-+        if ($result->type === "file--file" && !empty($resources) &&  $resource->hasLinks() && $resource->links()->hasAnyLinks()) {
++        if ($result->type === "file--file" && !empty($resource) &&  $resource->hasLinks() && $resource->links()->hasAnyLinks()) {
 +            $result->images = new stdClass();
 +            foreach ($resource->links()->links() as $link => $value) {
 +                if ($link !== "self"){
