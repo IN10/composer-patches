@@ -1,0 +1,29 @@
+Index: woohoolabs/yang/src/JsonApi/Hydrator/AttributeHydrator.php
+
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- woohoolabs/yang/src/JsonApi/Hydrator/AttributeHydrator.php	2022-12-20 12:03:37.000000000 +0100
++++ woohoolabs/yang/src/JsonApi/Hydrator/AttributeHydrator.php	2022-12-20 12:04:56.000000000 +0100
+@@ -16,6 +16,21 @@
+             $result->{$attribute} = $value;
+         }
+
++        if ($result->type === "media--image" && !empty($resource) && $resource->hasRelationship('field_media_image')) {
++            $result->alt = $resource->toArray()['relationships']['field_media_image']['data']['meta']['alt'];
++        }
++        if ($result->type === "media--image" && !empty($resource) &&  $resource->hasRelationship('image')) {
++            $result->alt = $resource->toArray()['relationships']['image']['data']['meta']['alt'];
++        }
++        if ($result->type === "file--file" && !empty($resource) &&  $resource->hasLinks() && $resource->links()->hasAnyLinks()) {
++            $result->images = new stdClass();
++            foreach ($resource->links()->links() as $link => $value) {
++                if ($link !== "self"){
++                    $result->images->{$link} = $value->href();
++                }
++            }
++        }
++
+         return $result;
+     }
