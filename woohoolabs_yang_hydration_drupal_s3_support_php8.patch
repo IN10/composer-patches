@@ -17,7 +17,7 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 +            $result->alt = $resource->toArray()['relationships']['image']['data']['meta']['alt'];
 +        }
 +        if ($result->type === "file--file" && !empty($resource) &&  $resource->hasLinks() && $resource->links()->hasAnyLinks()) {
-+            $result->images = new stdClass();
++            $result->images = new \stdClass();
 +            foreach ($resource->links()->links() as $link => $value) {
 +                if ($link !== "self"){
 +                    $result->images->{$link} = $value->href();
