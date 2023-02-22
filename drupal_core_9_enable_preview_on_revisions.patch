@@ -1,7 +1,7 @@
-diff --git a/web/core/modules/node/src/Controller/NodeController.php b/web/core/modules/node/src/Controller/NodeController.php
+diff --git a/core/modules/node/src/Controller/NodeController.php b/core/modules/node/src/Controller/NodeController.php
 index f5449802..28497511 100644
---- a/web/core/modules/node/src/Controller/NodeController.php
-+++ b/web/core/modules/node/src/Controller/NodeController.php
+--- a/core/modules/node/src/Controller/NodeController.php
++++ b/core/modules/node/src/Controller/NodeController.php
 @@ -211,21 +211,30 @@ public function revisionOverview(NodeInterface $node) {
          $row[] = $column;
  
