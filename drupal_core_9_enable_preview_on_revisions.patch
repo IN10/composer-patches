@@ -1,0 +1,42 @@
+diff --git a/web/core/modules/node/src/Controller/NodeController.php b/web/core/modules/node/src/Controller/NodeController.php
+index f5449802..28497511 100644
+--- a/web/core/modules/node/src/Controller/NodeController.php
++++ b/web/core/modules/node/src/Controller/NodeController.php
+@@ -211,21 +211,30 @@ public function revisionOverview(NodeInterface $node) {
+         $row[] = $column;
+ 
+         if ($is_current_revision) {
++          $links = [];
++
++          $links['preview'] = [
++            'title' => $this->t('Preview current revision'),
++            'url' => Url::fromRoute('preview_button.preview', ['node_id' => $node->id(), 'node_revision' => $vid]),
++          ];
++
+           $row[] = [
+             'data' => [
+-              '#prefix' => '<em>',
+-              '#markup' => $this->t('Current revision'),
+-              '#suffix' => '</em>',
++               '#type' => 'operations',
++               '#links' => $links,
+             ],
+           ];
+ 
+-          $rows[] = [
+-            'data' => $row,
+-            'class' => ['revision-current'],
+-          ];
++          $rows[] = $row;
+         }
+         else {
+           $links = [];
++
++          $links['preview'] = [
++            'title' => $this->t('Preview revision'),
++            'url' => Url::fromRoute('preview_button.preview', ['node_id' => $node->id(), 'node_revision' => $vid]),
++          ];
++
+           if ($revision->access('revert revision')) {
+             $links['revert'] = [
+               'title' => $vid < $node->getRevisionId() ? $this->t('Revert') : $this->t('Set as current revision'),
