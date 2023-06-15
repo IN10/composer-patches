@@ -19,7 +19,7 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 +            $result->images = new stdClass();
 +            foreach ($resource->links()->links() as $link => $value) {
 +                if ($link !== "self"){
-+                    $result->images->{$link} = $value->href();
++                    $result->images->{$link} = str_replace(' ', '%20', $value->href());
 +                }
 +            }
 +        }
