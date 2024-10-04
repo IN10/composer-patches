@@ -1,0 +1,11 @@
+--- XmlSitemapGenerator.php	2024-10-04 10:29:01
++++ XmlSitemapGeneratorNew.php	2024-10-04 10:25:17
+@@ -338,6 +338,8 @@
+       }
+ 
+       $element = [];
++      $default_langcode = Settings::get('default_langcode');
++      $link_url = str_replace(['/' . $default_langcode . '/', '/' . $default_langcode], '/', $link_url);
+       $element['loc'] = $link_url;
+       if ($link['lastmod']) {
+         $element['lastmod'] = gmdate($lastmod_format, $link['lastmod']);
