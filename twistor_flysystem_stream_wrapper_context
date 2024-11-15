@@ -1,0 +1,17 @@
+diff --git a/src/FlysystemStreamWrapper.php b/src/FlysystemStreamWrapper.php
+--- FlysystemStreamWrapper.php	2024-11-15 11:00:45
++++ FlysystemStreamWrapper.php	2024-11-15 11:00:34
+@@ -26,6 +26,13 @@
+     const STREAM_URL_IGNORE_SIZE = 8;
+ 
+     /**
++     * PHP-passed stream context.
++     *
++     * @var resource|null
++     */
++    public $context;
++
++    /**
+      * The registered filesystems.
+      *
+      * @var \League\Flysystem\FilesystemInterface[]
