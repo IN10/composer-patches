@@ -10,7 +10,7 @@ index f5449802..28497511 100644
 +
 +          $links['preview'] = [
 +            'title' => $this->t('Preview current revision'),
-+            'url' => Url::fromRoute('preview_button.preview', ['node_id' => $node->id(), 'node_revision' => $vid]),
++            'url' => Url::fromRoute('preview_button.preview', ['node_id' => $node->id(), 'node_revision' => $vid, 'language' => $langcode]),
 +          ];
 +
            $row[] = [
@@ -34,7 +34,7 @@ index f5449802..28497511 100644
 +
 +          $links['preview'] = [
 +            'title' => $this->t('Preview revision'),
-+            'url' => Url::fromRoute('preview_button.preview', ['node_id' => $node->id(), 'node_revision' => $vid]),
++            'url' => Url::fromRoute('preview_button.preview', ['node_id' => $node->id(), 'node_revision' => $vid, 'language' => $langcode]),
 +          ];
 +
            if ($revision->access('revert revision')) {
