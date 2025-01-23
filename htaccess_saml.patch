@@ -1,4 +1,4 @@
-diff --git a/.htaccess b/.htaccess
+diff --git a/core/assets/scaffold/files/htaccess b/core/assets/scaffold/files/htaccess
 --- a/.htaccess
 +++ b/.htaccess
 @@ -141,6 +141,8 @@
