@@ -1,4 +1,4 @@
-diff --git a/web/robots.txt b/web/robots.txt
+diff --git a/core/assets/scaffold/files/robots.txt b/core/assets/scaffold/files/robots.txt
 index ebcd04b..1f53798 100644
 --- a/web/robots.txt
 +++ b/web/robots.txt
