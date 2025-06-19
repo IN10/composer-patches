@@ -1,0 +1,25 @@
+diff --git a/modules/jsonapi_defaults/jsonapi_defaults.services.yml  b/modules/jsonapi_defaults/jsonapi_defaults.services.yml
+--- a/modules/jsonapi_defaults/jsonapi_defaults.services.yml
++++ b/modules/jsonapi_defaults/jsonapi_defaults.services.yml
+
+services:
+  jsonapi_defaults_includes:
+    class: Drupal\jsonapi_defaults\JsonapiDefaults
+
+  jsonapi.entity_resource.jsonapi_defaults:
+    class: Drupal\jsonapi_defaults\Controller\EntityResource
+    decorates: jsonapi.entity_resource
+    arguments:
+      - '@entity_type.manager'
+      - '@entity_field.manager'
+      - '@jsonapi.resource_type.repository'
+      - '@renderer'
+      - '@entity.repository'
+      - '@jsonapi.include_resolver'
+      - '@jsonapi.entity_access_checker'
+      - '@jsonapi.field_resolver'
+      - '@serializer'
+      - '@datetime.time'
+      - '@current_user'
+      - '@jsonapi_defaults_includes'
+      - '@logger.factory'
