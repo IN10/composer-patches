@@ -1,5 +1,5 @@
---- a/jsonapi_defaults.services.yml
-+++ b/jsonapi_defaults.services.yml
+--- a/modules/jsonapi_defaults/jsonapi_defaults.services.yml
++++ b/modules/jsonapi_defaults/jsonapi_defaults.services.yml
 @@ -1,4 +1,18 @@
  services:
    jsonapi_defaults_includes:
